@@ -49,7 +49,7 @@ Header size: **0x14**
 | compressedSize | 0x10 | 0x4 | u32 | size of the (collective!) compressed data.|
 
 ## Data
-Data seems to be written directly after `compressedSize`. The data of all files packed next to each other.
+Data seems to be written directly after `compressedSize`. The data of all files is packed next to each other.
 
 To determine how much data to read for each file:
 
@@ -57,7 +57,7 @@ To determine how much data to read for each file:
 /* (pseudocode) */
 
 GFACHeader gfacHeader;
-FileReader reader; // you can replace instances of this with your own implementation.
+FileReader reader; // you can replace this with your own implementation.
 
 int fileCount = gfacHeader.fileCount;
 FileEntries fileEntries[fileCount];
