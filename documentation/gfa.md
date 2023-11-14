@@ -1,4 +1,5 @@
-# GFA - **G**ood**F**eel**A**rchive
+# GFA - GoodFeelArchive
 
-## GFAC - **G**ood**F**eel**A**r**C**hive
+## GFAC - GoodFeelArChive
 
+## GFCP - GoodFeelComPression
