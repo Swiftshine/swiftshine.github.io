@@ -1,5 +1,12 @@
 # GFA documentation
 
+Table of contents:
+* [Archive Header](#gfac---goodfeelarchive)
+* [File Entries](#file-entries)
+* [String Filenames](#string-filenames)
+* [Compressed Data Header](#gfcp---goodfeelcompression)
+* [Compressed Data Information](#data)
+
 **GoodFeelArchive**:
 A file format used in GoodFeel games such as Kirby's Epic Yarn and Yoshi's Wooly World (and their 3DS rereleases).  Byte order is **little endian**.
 
@@ -35,7 +42,7 @@ Entry size: **0x10**
 
 \* In the few tools that have anything to do with GFA, `nameOffset` is ANDed with `0x00FFFFFF` when getting the string.
 
-## String filenames
+## String Filenames
 After the final file entry, the strings are written. These (null-terminated) strings are written consecutively, and once the final string is written, there is padding until the next multiple of `0x10`.
 
 
