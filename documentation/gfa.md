@@ -6,6 +6,8 @@ A file format used in GoodFeel games such as Kirby's Epic Yarn and Yoshi's Wooly
 It is split into five parts: the archive file header, the file entries, the list of strings (for filenames), the compressed data file header, and the compressed data itself.
 
 ## GFAC - GoodFeelArChive
+Information about the entire archive is defined here.
+
 Header size: **0x30**
 <!-- i kinda just gave up with the indention halfway through  -->
 | Name      | Offset    | Size      | Data Type     | Description   | 
@@ -21,13 +23,15 @@ Header size: **0x30**
 | fileCount | 0x2C | 0x4 | u32 | the number of files in the archive. |
 
 ## File Entries
+Information about each file is defined here.
+
 Entry size: **0x10**
 | Name      | Offset    | Size      | Data Type     | Description   |
 | ---       | ---       | ---       | ---           | ---           |
 | hash      | 0x0       | 0x4       | u32           | CRC32.        |
 | nameOffset\* | 0x4      | 0x4       | u32           | offset (relative to 0x0) to this file's name |
-| size      | 0x8       | 0x4       | u32           | size of compressed data |
-| dataOffset | 0xC      | 0x4       | u32           | offset (relative to 0x0) to the compressed data|
+| size      | 0x8       | 0x4       | u32           | size of compressed data. |
+| dataOffset | 0xC      | 0x4       | u32           | offset (relative to 0x0) to the compressed data.|
 
 \* In the few tools that have anything to do with GFA, `nameOffset` is ANDed with `0x00FFFFFF` when getting the string.
 
@@ -36,7 +40,7 @@ After the final file entry, the strings are written. These (null-terminated) str
 
 
 ## GFCP - GoodFeelComPression
-(actual meaning unknown)
+Information about the compressed data is defined here (meaning of the magic is unknown).
 
 Header size: **0x14**
 
