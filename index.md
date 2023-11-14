@@ -1,2 +1,5 @@
-# does this work?
-if you see this, it probably does.
+Hello.
+
+[GFA Documentation](documentation/gfa.md)
+
+[This site's source code](https://github.com/Swiftshine/swiftshine.github.io)
