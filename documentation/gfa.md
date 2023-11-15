@@ -41,7 +41,7 @@ Entry size: **0x10**
 | ---       | ---       | ---       | ---           | ---           |
 | hash      | 0x0       | 0x4       | u32           | CRC32<sup>3</sup>        |
 | nameOffset<sup>4</sup> | 0x4      | 0x4       | u32           | offset (relative to 0x0) to this file's name. |
-| size      | 0x8       | 0x4       | u32           | size of compressed data. |
+| size      | 0x8       | 0x4       | u32           | size of decompressed data. |
 | dataOffset | 0xC      | 0x4       | u32           | offset (relative to 0x0) to the compressed data.|
 
 3 - This hash is calculated with the *uncompressed* data.
