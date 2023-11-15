@@ -81,11 +81,7 @@ FileEntries fileEntries[fileCount];
 Buffer fileBuffer[fileCount];
 
 for (int i = 0; i < fileCount; i++) {
-    // get the offset of the compressed data relative to 0x0
-    unsigned int dataPos = fileEntries[i].dataOffset - gfacHeader.dataOffset;
-
-    reader.seek(dataPos);
-
+    reader.seek(fileEntries[i].dataOffset);
     fileBuffer[i].data = reader.readData(fileEntries[i].size);
 }
 
