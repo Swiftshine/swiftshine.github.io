@@ -81,7 +81,10 @@ FileEntries fileEntries[fileCount];
 Buffer fileBuffer[fileCount];
 
 for (int i = 0; i < fileCount; i++) {
-    reader.seek(fileEntries[i].dataOffset);
+    if (fileEntries[i].dataOffset == 0)
+        reader.seek(fileEntries[i].dataOffset + sizeof(GFCPHeader));
+    else
+        reader.seek(fileEntries[i].dataOffset);
     fileBuffer[i].data = reader.readData(fileEntries[i].size);
 }
 
