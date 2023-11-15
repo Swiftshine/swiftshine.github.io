@@ -100,3 +100,6 @@ Here is a list of everything GFA-related I have found up to this point (in no pa
 * [This Kirby's Epic Yarn QuickBMS script](http://aluigi.altervista.org/bms/kirby_epic_yarn.bms)
 * [This GFA packer for Yoshi's Wooly World](https://github.com/jam1garner/gfa-packer)
 * [Switch Toolbox](https://github.com/KillzXGaming/Switch-Toolbox/blob/master/File_Format_Library/FileFormats/Archives/GFA.cs)
+
+### Undocumented GFA Info
+* Some GFA files seem to have a preset offset at which the GFCP header is located. One notable example is that of Yoshi's Wooly World -- the GFCP header is always at `0x2000`. The reason for this is currently unknown.
