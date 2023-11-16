@@ -74,7 +74,10 @@ To determine how much data to read for each file:
 /* (pseudocode) */
 
 GFACHeader gfacHeader;
-FileReader reader; // you can replace this with your own implementation.
+
+// you can replace this with your own implementation.
+// assume this reader's file is the *uncompressed* data.
+FileReader reader; 
 
 int fileCount = gfacHeader.fileCount;
 FileEntries fileEntries[fileCount];
