@@ -8,7 +8,7 @@ Should I put something more interesting here? Dunno.
 * computer science
 * cats
 * reading
-* games (Mario, Minecraft, Splatoon, Persona, Pokémon...)
+* games (Mario, Minecraft, Splatoon, Pikmin, Persona, Pokémon...)
 
 ## What are your skills?
 __Programming__
