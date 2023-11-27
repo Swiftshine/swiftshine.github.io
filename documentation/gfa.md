@@ -30,9 +30,10 @@ Header size: **0x30**<sup>1</sup>
 | padding | 0x1C | 0x10 | u8[0x10] | always 0. | 
 | fileCount | 0x2C | 0x4 | u32 | the number of files in the archive. |
 
-1 - The size of the header is actually `0x2C`. See below.
+1 - The size of the header is actually `0x2C`, because `fileCount` is not part of the archive header; it is part of a "fileInfo" header of variable size (which is why I included `fileCount` as part of the archive header).
 
-2 -  Upon first glance at this value in a hex editor, you may notice that the size of the file entries and the string names are `fileInfoSize - 1`...but, if you include `fileCount`, then it will be equal to `fileInfoSize`. `fileCount` is technically not part of the GFAC header. (Since it looks much nicer, though, I've left it at that.)
+2 - `fileInfoSize` = size of (`fileCount`) + size of (all file entries) + size of (null-terminated strings).
+
 ## File Entries
 Information about each file is defined here.
 
