@@ -22,7 +22,7 @@ Header size: **0x30**<sup>1</sup>
 | ---       | ---       | ---       | ---           | ---           |
 | magic     | 0x0       | 0x4       | char[0x4]     | "GFAC"        |
 | _4        | 0x4       | 0x4       | u32           | unknown. 0x00030000 in Kirby's Epic Yarn (Wii), 0x01030000 everywhere else.      |
-| version   | 0x8       | 0x4       | u32           | this value is different between games for some reason.|
+| version   | 0x8       | 0x4       | u32           | always 1.|
 | fileCountOffset | 0xC | 0x4 | u32 | offset (relative to 0x0) to the value indicating the total number of files. this value is usually 0x2C. | 
 | fileInfoSize | 0x10 | 0x4 | u32 | the size of the file information.<sup>2</sup> |
 | dataOffset | 0x14 | 0x4 | u32 | offset (relative to 0x0) to the GFCP header. |
