@@ -1,12 +1,15 @@
 # GFA documentation
 
 Table of contents:
-* [Archive Header](#gfac---goodfeelarchive)
-* [File Entries](#file-entries)
-* [String Filenames](#string-filenames)
-* [Compressed Data Header](#gfcp---goodfeelcompression)
-* [Compressed Data Information](#data)
-* [Extra Info](#extra)
+- [GFA documentation](#gfa-documentation)
+  - [GFAC - GoodFeelArChive](#gfac---goodfeelarchive)
+  - [File Entries](#file-entries)
+  - [String Filenames](#string-filenames)
+  - [GFCP - GoodFeelComPression](#gfcp---goodfeelcompression)
+  - [Data](#data)
+  - [Extra](#extra)
+    - [What about existing documentation?](#what-about-existing-documentation)
+    - [Undocumented GFA Info](#undocumented-gfa-info)
 
 **GoodFeelArchive**:
 A file format used in GoodFeel games such as Kirby's Epic Yarn and Yoshi's Wooly World (and their 3DS rereleases).  Byte order is **little endian**.
@@ -30,7 +33,7 @@ Header size: **0x30**<sup>1</sup>
 | padding | 0x1C | 0x10 | u8[0x10] | always 0. | 
 | fileCount | 0x2C | 0x4 | u32 | the number of files in the archive. |
 
-1 - The size of the header is actually `0x2C`, because `fileCount` is not part of the archive header; it is part of a "fileInfo" header of variable size (which is why I included `fileCount` as part of the archive header).
+1 - The size of the header is actually `0x20`, because neither `padding` nor `fileCount` are part of the archive header (defined in Kirby's Epic Yarn's code); `fileCount` is part of a "fileInfo" header of variable size (which is why I included `fileCount` as part of the archive header).
 
 2 - `fileInfoSize` = size of (`fileCount`) + size of (all file entries) + size of (null-terminated strings).
 
