@@ -1,4 +1,6 @@
 # GFA documentation
+This documentation is **NOT COMPLETE** by any means, so be careful if you want to use this for anything. I'll be updating this as I find out more.
+
 
 Table of contents:
 - [GFA documentation](#gfa-documentation)
@@ -59,7 +61,7 @@ After the final file entry, the strings are written. These (null-terminated) str
 ## GFCP - GoodFeelComPression
 Information about the compressed data is defined here (meaning of the magic is unknown).
 
-Header size: **0x14**
+Header size: **0x14** (might just be 0x20 or 0x40, idk)
 
 | Name      | Offset    | Size      | Data Type     | Description   |
 | ---       | ---       | ---       | ---           | ---           |
