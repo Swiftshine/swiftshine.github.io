@@ -83,7 +83,8 @@ Here is a list of everything GFA-related I have found up to this point (in no pa
 * [This Kirby's Epic Yarn QuickBMS script](http://aluigi.altervista.org/bms/kirby_epic_yarn.bms)
 * [This GFA packer for Yoshi's Wooly World](https://github.com/jam1garner/gfa-packer)
 * [Switch Toolbox](https://github.com/KillzXGaming/Switch-Toolbox/blob/master/File_Format_Library/FileFormats/Archives/GFA.cs)
-
+* [My own tool](https://github.com/Swiftshine/Tangle)
+* * It's a bit flawed, but it works!
 ### Undocumented GFA Info
 * Even when similar games use the same format, there can be individual differences. (Despite these differences, they (*theoretically*) don't matter as long as the offset to the GFCP header matches what is stated in the GFAC header.)
     * In Kirby's Epic Yarn (Wii), there is always padding of `0x10` bytes between the end of the fileInfo (which itself may have padding from the last null-terminated string to the next offset with a multiple of `0x10`) and the GFCP header.
@@ -102,7 +103,6 @@ int fileCount;
 FileBuffer file[fileCount];
 FileBuffer result;
 FileBuffer all;
-
 
 // I want to emphasise that the data is aggregated
 // first. only then does it get compressed.
