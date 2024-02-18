@@ -144,6 +144,7 @@ gfcp.compressedSize   = compressed.size;
 result.append(gfcp);
 result.append(compressed);
 
+writeFile(result, "cool_file.gfa");
 // your new GFA file should (theoretically)
 // be complete
 ```
