@@ -129,7 +129,8 @@ for (int i = 0; i < fileCount; i++) {
 // atm it's unknown what the conditions are
 // for padding to just appear in a file
 // but for the most part, it can be ignored
-// as long as you
+// as long as you set the rest of the fields
+// in the GFAC header as such to reflect that
 if (padding_is_needed) {
     result.append(appropriate_padding_amount);
 }
