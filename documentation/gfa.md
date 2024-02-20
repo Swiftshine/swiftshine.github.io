@@ -51,7 +51,16 @@ Entry size: **0x10**
 | size      | 0x8       | 0x4       | u32           | size of decompressed data. |
 | dataOffset | 0xC      | 0x4       | u32           | offset (relative to 0x0) to the compressed data.|
 
-3 - ~~This CRC32 hash is calculated with the *uncompressed* data.~~ It's unknown what's actually used to calculate the data, or how it's calculated. [Current tools suggest a CRC32 may be calculated with uncompressed data](https://github.com/jam1garner/gfa-packer/blob/master/gfa-packer.py#L33C5-L33C35).
+3 - The hash is calculated with just the file's name, shown below:
+```c++
+std::string filename = "aurora00.brres";
+unsigned int hash = 0;
+for (int i = 0; i < filename.length(); i++) {
+    char c = filename[i];
+    hash = c + hash * 0x89;
+}
+// you now have a hash calculation
+```
 
 4 - In the few tools that have anything to do with GFA, `nameOffset` is ANDed with `0x00FFFFFF` when getting the string.
 
