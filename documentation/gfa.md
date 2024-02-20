@@ -129,7 +129,7 @@ result.append(gfac);
 
 for (int i = 0; i < fileCount; i++) {
     FileEntry entry;
-    entry.hash = calculateHash(file[i]);
+    entry.hash = calculateHash(appropriate_file_name);
     entry.size = file[i].size;
     // assume you set up the rest of the entry data
     result.append(entry);
