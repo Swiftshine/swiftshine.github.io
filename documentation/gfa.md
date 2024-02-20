@@ -53,7 +53,7 @@ Entry size: **0x10**
 
 3 - The hash is calculated with just the file's name, shown below:
 ```c++
-std::string filename = "aurora00.brres";
+std::string filename;
 unsigned int hash = 0;
 for (int i = 0; i < filename.length(); i++) {
     char c = filename[i];
@@ -205,7 +205,7 @@ decompressed = decompress(all, compressionType);
 
 reader.setFile(decompressed);
 for (int i = 0; i < fileCount; i++) {
-    FileBuffer temp = reader.read(FileEntries[i].size);
+    FileBuffer temp = reader.read(fileEntries[i].size);
     writeFile(temp, filenames[i]);
 }
 
