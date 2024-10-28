@@ -28,6 +28,7 @@ Size = `0x40`
 | gfcp offset       | `0x14` | `0x4` | `u32`       | Offset to GFCP header.                                                  |
 | payload size      | `0x18` | `0x4` | `u32`       | Size of the rest of the file from the start of the GFCP header onwards. |
 | file count        | `0x2C` | `0x4` | `u32`       | The number of files in the archive.                                     |
+
 ### File Entries
 Size = `0x10`
 
@@ -37,6 +38,7 @@ Size = `0x10`
 | name offset         | `0x4`  | `0x4` | `u32`     | Offset to the filename. To process, this value is to be `AND`ed with `0x00FFFFFF`. |
 | size                | `0x8`  | `0x4` | `u32`     | Size of the file when uncompressed.                                                |
 | decompressed offset | `0xC`  | `0x4` | `u32`     | See below.<sup>3</sup>                                                             |
+
 ### Filename Strings
 Immediately after the final file entry, null-terminated strings are written consecutively. Once the final string is written, there is padding until the next multiple of `0x10`.
 
@@ -52,6 +54,7 @@ Before compression, files are concatenated.
 | compression type  | `0x8`  | `0x4` | `u32`       | See chart below.<sup>4</sup>                                      |
 | decompressed size | `0xC`  | `0x4` | `u32`       | Size of collective decompressed data, padded to offset of `0x10`. |
 | compressed size   | `0x10` | `0x4` | `u32`       | Size of compressed data.                                          |
+
 1 - Calculated this way:
 ```c++
 uint32_t size =
