@@ -8,7 +8,6 @@ A file format used in Good-Feel games released on Nintendo consoles prior to the
 - Sections: 5
 	- archive header
 	- file entries
-		- there's really 
 	- filename list
 	- compression header
 	- compressed data
