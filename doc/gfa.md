@@ -1,5 +1,3 @@
-# GFA
-
 **GoodFeelArchive**
 A file format used in Good-Feel games released on Nintendo consoles prior to their Nintendo Switch games.
 
