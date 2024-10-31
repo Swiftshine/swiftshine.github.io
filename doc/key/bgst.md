@@ -69,5 +69,7 @@ Additionally, fields that *appear* to be grid entries do not follow the regular 
 ### Image data
 A "main image" is a [CMPR](https://wiki.tockdom.com/wiki/Image_Formats#CMPR)-compressed image. Because transparency is not supported in that format, grids that want to render a specific part of the image must use an additional [I4](https://wiki.tockdom.com/wiki/Image_Formats#I4)-encoded alpha mask.
 
+These compressed data blocks are `0x20000` bytes in size.
+
 ## Tools
 [bgsttool](https://github.com/Swiftshine/bgst)
