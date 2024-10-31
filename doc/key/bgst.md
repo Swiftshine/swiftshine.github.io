@@ -1,4 +1,5 @@
 **BGST**
+
 The background format for *Kirby's Epic Yarn*.
 
 **General Information**
