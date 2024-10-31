@@ -66,7 +66,7 @@ Grid entries can be thought of as information for rendering a grid cell. Every f
 Additionally, fields that *appear* to be grid entries do not follow the regular grid entry pattern -- an example can be found in `stage/stage000/section001.bgst3`. It's unknown if this is an entry, some other data, or garbage.
 
 ### Image data
-A "main image" is a [CMPR](https://wiki.tockdom.com/wiki/Image_Formats#CMPR)-compressed image. Because transparency is not supported, grids that want to render a specific part of the image must use an additional [I4](https://wiki.tockdom.com/wiki/Image_Formats#I4) -encoded alpha mask.
+A "main image" is a [CMPR](https://wiki.tockdom.com/wiki/Image_Formats#CMPR)-compressed image. Because transparency is not supported, grids that want to render a specific part of the image must use an additional [I4](https://wiki.tockdom.com/wiki/Image_Formats#I4)-encoded alpha mask.
 
 ## Tools
 [bgsttool](https://github.com/Swiftshine/bgst)
