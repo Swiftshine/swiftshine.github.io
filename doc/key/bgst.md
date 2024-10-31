@@ -75,7 +75,7 @@ These compressed data blocks are `0x20000` bytes in size.
 The following examples are from `stage/stage000/section005.bgst3`.
 
 
-Main Image: index 26
+Main image: index 26
 ![](res/bgst_main_example_1.png) 
 
 Mask image: index 27
@@ -85,7 +85,7 @@ Mask image: index 27
 
 
 
-Main Image: index 28
+Main image: index 28
 ![](res/bgst_main_example_2.png) 
 
 Mask image: index 29
