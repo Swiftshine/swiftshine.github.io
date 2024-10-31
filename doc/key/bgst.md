@@ -77,14 +77,17 @@ The following examples are from `stage/stage000/section005.bgst3`.
 
 Main Image: index 26
 ![](res/bgst_main_example_1.png) 
+
 Mask image: index 27
 ![](res/bgst_mask_example_1.png)
 
 
 
 
+
 Main Image: index 28
 ![](res/bgst_main_example_2.png) 
+
 Mask image: index 29
 ![](res/bgst_mask_example_2.png)
 
