@@ -29,12 +29,12 @@ Size = `0x40`
 ### File Entries
 Size = `0x10`
 
-| field               | offset | size  | data type | description                                                                        |
-| ------------------- | ------ | ----- | --------- | ---------------------------------------------------------------------------------- |
-| checksum            | `0x0`  | `0x4` | `u32`     | This is based on the filename, not the contents of the file.<sup>2</sup>           |
-| name offset         | `0x4`  | `0x4` | `u32`     | Offset to the filename. To process, this value is to be `AND`ed with `0x00FFFFFF`. |
-| size                | `0x8`  | `0x4` | `u32`     | Size of the file when uncompressed.                                                |
-| decompressed offset | `0xC`  | `0x4` | `u32`     | See below.<sup>3</sup>                                                             |
+| field               | offset | size  | data type | description                                                                                                                                                     |
+| ------------------- | ------ | ----- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| checksum            | `0x0`  | `0x4` | `u32`     | This is based on the filename, not the contents of the file.<sup>2</sup>                                                                                        |
+| name offset         | `0x4`  | `0x4` | `u32`     | Offset to the filename. To process, this value is to be `AND`ed with `0x00FFFFFF`. If this is the last entry in the archive, a flag of `0x80000000` is applied. |
+| size                | `0x8`  | `0x4` | `u32`     | Size of the file when uncompressed.                                                                                                                             |
+| decompressed offset | `0xC`  | `0x4` | `u32`     | See below.<sup>3</sup>                                                                                                                                          |
 ### Filename Strings
 Immediately after the final file entry, null-terminated strings are written consecutively. Once the final string is written, there is padding until the next multiple of `0x10`.
 
