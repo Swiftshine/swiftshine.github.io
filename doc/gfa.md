@@ -82,8 +82,8 @@ for (auto i = 0; filename[i] != 0; i++) {
 | value | type                  |
 | ----- | --------------------- |
 | 1     | Byte Pair Encoding    |
-| 2     | Speculated to be LZ77 |
-| 3     | LZ77                  |
+| 2     | Speculated to be LZ10 |
+| 3     | LZ10                  |
 
 ## Tools
 - [Tangle](https://github.com/Swiftshine/Tangle)
