@@ -16,16 +16,16 @@ Assume padding of bytes with a value of 0 when there is a gap.
 ### Archive Header 
 Size = `0x40`
 
-| field             | offset | size  | data type   | description                                                             |
-| ----------------- | ------ | ----- | ----------- | ----------------------------------------------------------------------- |
-| magic             | `0x0`  | `0x4` | `char[0x4]` | "GFAC" - **G**ood**F**eel **A**r**C**hive                               |
-| version           | `0x4`  | `0x4` | `u32`       | Upper 24 bits are version major, lower 8 bits are version minor.        |
-| compressed        | `0x8`  | `0x1` | `bool`      | Indicates whether or not the file has a compression header.             |
-| entry info offset | `0xC`  | `0x4` | `u32`       | Offset to entry information.                                            |
-| file info size    | `0x10` | `0x4` | `u32`       | The size of the file information.<sup>1</sup>                           |
-| gfcp offset       | `0x14` | `0x4` | `u32`       | Offset to GFCP header.                                                  |
-| payload size      | `0x18` | `0x4` | `u32`       | Size of the rest of the file from the start of the GFCP header onwards. |
-| file count        | `0x2C` | `0x4` | `u32`       | The number of files in the archive.                                     |
+| field             | offset | size  | data type   | description                                                                                                       |
+| ----------------- | ------ | ----- | ----------- | ----------------------------------------------------------------------------------------------------------------- |
+| magic             | `0x0`  | `0x4` | `char[0x4]` | "GFAC" - **G**ood**F**eel **A**r**C**hive                                                                         |
+| version           | `0x4`  | `0x4` | `u32`       | Rightmost byte is version major. The byte after that is version minor. The other two bytes don't seem to be used. |
+| compressed        | `0x8`  | `0x1` | `bool`      | Indicates whether or not the file has a compression header.                                                       |
+| entry info offset | `0xC`  | `0x4` | `u32`       | Offset to entry information.                                                                                      |
+| file info size    | `0x10` | `0x4` | `u32`       | The size of the file information.<sup>1</sup>                                                                     |
+| gfcp offset       | `0x14` | `0x4` | `u32`       | Offset to GFCP header.                                                                                            |
+| payload size      | `0x18` | `0x4` | `u32`       | Size of the rest of the file from the start of the GFCP header onwards.                                           |
+| file count        | `0x2C` | `0x4` | `u32`       | The number of files in the archive.                                                                               |
 ### File Entries
 Size = `0x10`
 
@@ -87,6 +87,7 @@ for (auto i = 0; filename[i] != 0; i++) {
 
 ## Tools
 - [Tangle](https://github.com/Swiftshine/Tangle)
+- [Rust Crate](https://github.com/Swiftshine/gfarch-rs)
 ## Existing Documentation
 Aside from reverse engineering certain aspects of the format myself, I referenced the following:
 - [Kirby's Epic Yarn QuickBMS script](http://aluigi.altervista.org/bms/kirby_epic_yarn.bms)
