@@ -171,6 +171,6 @@ The structures are as follows:
 | ----------------- | ------ | -------------------------- | ----------------------------- | ----------- |
 | number of entries | `0x0`  | `0x4`                      | `u32`                         |             |
 | entries           | `0x4`  | `0x20` * number of entries | `String32[number of entries]` |             |
-|                   |        |                            |                               |             |
+
 ## Enbin
 At the time of writing this, the entirety of the `enbin` format isn't well-known. See [enbin ImHex pattern](https://github.com/Swiftshine/key/blob/main/docs/hexpat/enbin.hexpat) for existing documentation.
