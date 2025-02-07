@@ -135,7 +135,7 @@ Size = `0x124`
 | parameters | `0x4C` | `0xD8` | `MapdataParams` |                                                                    |
 
 #### Paths
-Size > `0x1CC` as the structure is variable size.
+Size > `0x11C` as the structure is variable size
 
 | field            | offset  | size                     | data type                 | description                                                                                |
 | ---------------- | ------- | ------------------------ | ------------------------- | ------------------------------------------------------------------------------------------ |
