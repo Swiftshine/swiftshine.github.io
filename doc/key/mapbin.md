@@ -95,6 +95,7 @@ Size = `0x20`
 | normalized vector    | `0x10` | `0x8` | `Vec2f`   | This is what handles proper collision. See calculation below.<sup>1</sup>  |
 | index                | `0x18` | `0x4` | `u32`     | The index of the wall.                                                     |
 | collision type index | `0x1C` | `0x4` | `u32`     | Referencing the collision type name bank, the index of the collision type. |
+
 1 - The normalized vector is calculated as such:
 ```cpp
 Vec2f GetNormalizedVector(Vec2f start, Vec2f end) {
