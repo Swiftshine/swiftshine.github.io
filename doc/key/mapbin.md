@@ -62,7 +62,7 @@ struct CommonGimmickParams {
 	- collision type name bank
 	- wall label name bank
 
-This format does not have padding in-between sections. The file's size is padded with a value of 0 to a size of `0x20`.
+This format does not have padding in-between sections. The file's size is padded with a value of 0 to a size that is a multiple of `0x20`.
 
 ### Format Documentation
 #### Header
