@@ -68,21 +68,21 @@ This format does not have padding in-between sections. The file is padded with a
 #### Header
 Size = `0x58`
 
-| field                      | offset | size  | data type         | description                                                                                     |
-| -------------------------- | ------ | ----- | ----------------- | ----------------------------------------------------------------------------------------------- |
-| unknown                    | `0x0`  | `0x4` | `float`           | This value is often seen to be ~`3.3f`. Values lower than this seem to crash the game.          |
-| minimum camera position    | `0x4`  | `0x8` | `Vec2f`           | The camera position will not go lower than this.                                                |
-| maximum camera position    | `0xC`  | `0x8` | `Vec2f`           | The camera position will not go higher than this.                                               |
-| walls                      | `0x14` | `0x8` | `CountOffsetPair` | Terrain collision.                                                                              |
-| labeled walls              | `0x1C` | `0x8` | `CountOffsetPair` | Terrain collision with labels for additional processing.                                        |
-| common gimmicks            | `0x24` | `0x8` | `CountOffsetPair` | Level entities that are frequently used.                                                        |
-| gimmicks                   | `0x2C` | `0x8` | `CountOffsetPair` | Level entities that are less frequently used.                                                   |
-| paths                      | `0x34` | `0x8` | `CountOffsetPair` | Dictates paths for entities to follow or act upon.                                              |
-| zones                      | `0x3C` | `0x8` | `CountOffsetPair` | Describes an area in the level in which something may occur consistently or conditionally.      |
-| course info                | `0x44` | `0x8` | `CountOffsetPair` | Indicates completion for Mara's race.                                                           |
-| common gimmick name offset | `0x4C` | `0x4` | `u32`             | The string bank for common gimmick names starts here, relative to the start of the file.        |
-| collision type name offset | `0x50` | `0x4` | `u32`             | The string bank for collision type names starts here, relative to the start of the file.        |
-| wall label name offset     | `0x54` | `0x4` | `u32`             | The string bank for the labels of labeled walls starts here, relative to the start of the file. |
+| field                      | offset | size  | data type         | description                                                                                                                                 |
+| -------------------------- | ------ | ----- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| version                    | `0x0`  | `0x4` | `float`           | This value indicates what features are available: `3.1`+ for zone data, and `3.3`+ for course info data. Most levels in the game use `3.3`. |
+| minimum camera position    | `0x4`  | `0x8` | `Vec2f`           | The camera position will not go lower than this.                                                                                            |
+| maximum camera position    | `0xC`  | `0x8` | `Vec2f`           | The camera position will not go higher than this.                                                                                           |
+| walls                      | `0x14` | `0x8` | `CountOffsetPair` | Terrain collision.                                                                                                                          |
+| labeled walls              | `0x1C` | `0x8` | `CountOffsetPair` | Terrain collision with labels for additional processing.                                                                                    |
+| common gimmicks            | `0x24` | `0x8` | `CountOffsetPair` | Level entities that are frequently used.                                                                                                    |
+| gimmicks                   | `0x2C` | `0x8` | `CountOffsetPair` | Level entities that are less frequently used.                                                                                               |
+| paths                      | `0x34` | `0x8` | `CountOffsetPair` | Dictates paths for entities to follow or act upon.                                                                                          |
+| zones                      | `0x3C` | `0x8` | `CountOffsetPair` | Describes an area in the level in which something may occur consistently or conditionally.                                                  |
+| course info                | `0x44` | `0x8` | `CountOffsetPair` | Indicates completion for Mara's race.                                                                                                       |
+| common gimmick name offset | `0x4C` | `0x4` | `u32`             | The string bank for common gimmick names starts here, relative to the start of the file.                                                    |
+| collision type name offset | `0x50` | `0x4` | `u32`             | The string bank for collision type names starts here, relative to the start of the file.                                                    |
+| wall label name offset     | `0x54` | `0x4` | `u32`             | The string bank for the labels of labeled walls starts here, relative to the start of the file.                                             |
 
 #### Walls
 Internally called `ColDataSeg`.
