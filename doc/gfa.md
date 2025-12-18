@@ -14,7 +14,7 @@ Assume padding of bytes with a value of 0 when there is a gap.
 
 ## Format documentation
 ### Archive Header 
-Size = `0x40`
+Size = `0x30`
 
 | field             | offset | size  | data type   | description                                                                                                       |
 | ----------------- | ------ | ----- | ----------- | ----------------------------------------------------------------------------------------------------------------- |
