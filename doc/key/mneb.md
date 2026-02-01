@@ -95,4 +95,5 @@ Size: `0x18`
 | name        | `0x0`  | `0x10`              | `char[16]` | The name of this option.              |
 | value count | `0x10` | `0x4`               | `u32`      | The number of values for this option. |
 | values      | `0x14` | `1 * [value count]` | `u8[]`     | The values for this option.           |
+
 An alignment note: the address of the next `DemoOption` is padded to a multiple of 4 that *isn't* directly after the end of this struct. E.g. if this struct ends at `0x_2`, the next `DemoOption` will start at `0x_4`, but if this struct ends at `0x_4`, the next `DemoOption` will start at `0x_8` instead.
