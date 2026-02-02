@@ -17,41 +17,36 @@ The NURBS animation format for *Kirby's Epic Yarn*.
 ### Header
 Size: `0x18`
 
-| field              | offset | size  | data type | description                                                                              |
-| ------------------ | ------ | ----- | --------- | ---------------------------------------------------------------------------------------- |
-| magic              | `0x0`  | `0x4` | `char[4]` | "MNCH" - Model NURBS Control Header?                                                     |
-| curve block offset | `0x4`  | `0x4` | `u32`     | Offset to the curve blocks.                                                              |
-| unknown            | `0x8`  | `0x4` | `u32`     |                                                                                          |
-| curve block count  | `0xC`  | `0x4` | `u32`     | The number of curve blocks.                                                              |
-| unknown            | `0x10` | `0x4` | `u32`     |                                                                                          |
-| frame count        | `0x14` | `0x2` | `u16`     | The number of frames this animation has.                                                 |
-| is animated?       | `0x16` | `0x1` | `bool`    | Indicates if this animation is actually animated -- if false, the curves will be static. |
+| field              | offset | size  | data type | description                              |
+| ------------------ | ------ | ----- | --------- | ---------------------------------------- |
+| magic              | `0x0`  | `0x4` | `char[4]` | "MNCH" - Model NURBS Control Header?     |
+| curve block offset | `0x4`  | `0x4` | `u32`     | Offset to the curve blocks.              |
+| unknown            | `0x8`  | `0x4` | `u32`     |                                          |
+| curve block count  | `0xC`  | `0x4` | `u32`     | The number of curve blocks.              |
+| unknown            | `0x10` | `0x4` | `u32`     |                                          |
+| frame count        | `0x14` | `0x2` | `u16`     | The number of frames this animation has. |
+| unknown            | `0x16` | `0x1` | `bool`    |                                          |
 ### Curve Information
 #### Curve Block
-| field                  | offset | size                        | data type        | description                                                                                                             |
-| ---------------------- | ------ | --------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| magic                  | `0x0`  | `0x4`                       | `char[4]`        | "MNCN" - Model Nurbs Curve Node?                                                                                        |
-| block size             | `0x4`  | `0x4`                       | `u32`            | The size of this block.                                                                                                 |
-| name                   | `0x8`  | `0x20`                      | `char[32]`       | The name of this curve.                                                                                                 |
-| unknown                | `0x28` | `0x64`                      | unknown          |                                                                                                                         |
-| unknown                | `0x8C` | `0x4`                       | `float`          |                                                                                                                         |
-| unknown                | `0x90` | `0x4`                       | `u32`            |                                                                                                                         |
-| unknown                | `0x94` | `0x4`                       | `u32`            |                                                                                                                         |
-| unknown                | `0x98` | `0x4`                       | `u32`            |                                                                                                                         |
-| control point offset   | `0x9C` | `0x4`                       | `u32`            | Offset to the control points.                                                                                           |
-| knot offset            | `0xA0` | `0x4`                       | `u32`            | Offset to the knots.                                                                                                    |
-| key frame info offset  | `0xA4` | `0x4`                       | `u32`            | Offset to the key frame tables.                                                                                         |
-| unknown                | `0xA8` | `0x10`                      | `float[4]`       |                                                                                                                         |
-| unknown                | `0xB8` | `0x10`                      | `u32[4]`         |                                                                                                                         |
-| control point count    | `0xC8` | `0x4`                       | `u32`            | The number of control points                                                                                            |
-| control points         | `0xCC` | `8 * [control point count]` | `ControlPoint[]` | The control points.                                                                                                     |
-| knot count             |        | `0x4`                       | `u32`            | The number of knots.                                                                                                    |
-| knot vector            |        | `4 * [knot count]`          | `float[]`        | The knot vector.                                                                                                        |
-| key frame table offset |        | `0x4`                       | `u32`            | The offset to the key frame table.<br><br>The address of this field is what is pointed to by the key frame info offset. |
-| explicit padding       |        | `0xC`                       |                  | Ensures that the previous field and the next field have the same alignment.                                             |
-| key frame set          |        | variable size               | `KeyFrameSet[]`  | The key frame sets.                                                                                                     |
-| key frame set count    |        | `0x4`                       | `u32`            | The number of key frame sets.<br><br>The address of this field is what is pointed to by the key frame table offset.     |
-| key frame set offsets  |        | `4 * [key frame set count]` | `u32[]`          | Offsets to the key frame sets.                                                                                          |
+| field                       | offset | size   | data type  | description                        |
+| --------------------------- | ------ | ------ | ---------- | ---------------------------------- |
+| magic                       | `0x0`  | `0x4`  | `char[4]`  | "MNCN" - Model Nurbs Curve Node?   |
+| block size                  | `0x4`  | `0x4`  | `u32`      | The size of this block.            |
+| name                        | `0x8`  | `0x20` | `char[32]` | The name of this curve.            |
+| unknown                     | `0x28` | `0x64` | unknown    |                                    |
+| unknown                     | `0x8C` | `0x4`  | `float`    |                                    |
+| unknown                     | `0x90` | `0x4`  | `u32`      |                                    |
+| unknown                     | `0x94` | `0x4`  | `u32`      |                                    |
+| unknown                     | `0x98` | `0x4`  | `u32`      |                                    |
+| control point  table offset | `0x9C` | `0x4`  | `u32`      | Offset to the control point table. |
+| knot table offset           | `0xA0` | `0x4`  | `u32`      | Offset to the knot table.          |
+| key frame info offset       | `0xA4` | `0x4`  | `u32`      | Offset to the key frame info.      |
+| unknown                     | `0xA8` | `0x10` | `float[4]` |                                    |
+#### Control Point Table
+| field               | offset | size                          | data type        | description                   |
+| ------------------- | ------ | ----------------------------- | ---------------- | ----------------------------- |
+| control point count | `0x0`  | `0x4`                         | `u32`            | The number of control points. |
+| control points      | `0x4`  | `0x8 * [control point count]` | `ControlPoint[]` | The control points.           |
 #### Control Point
 
 | field | offset | size  | data type | description |
@@ -60,6 +55,28 @@ Size: `0x18`
 | y     | `0x2`  | `0x2` | `s16`     | Y position. |
 | z     | `0x4`  | `0x2` | `s16`     | Z position. |
 | w     | `0x6`  | `0x2` | `s16`     | Weight.     |
+#### Knot Table
+| field       | offset | size                 | data type | description          |
+| ----------- | ------ | -------------------- | --------- | -------------------- |
+| knot count  | `0x0`  | `0x4`                | `u32`     | The number of knots. |
+| knot vector | `0x4`  | `0x4 * [knot count]` | `float[]` | The knot vector.     |
+#### Key Frame Info
+| field                  | offset | size          | data type       | description                        |
+| ---------------------- | ------ | ------------- | --------------- | ---------------------------------- |
+| key frame table offset | `0x0`  | `0x4`         | `u32`           | The offset to the key frame table. |
+| unknown                | `0x4`  | `0xC`         |                 | Maybe used for alignment?          |
+| key frame set          | `0x10` | variable size | `KeyFrameSet[]` | The key frame sets.                |
+#### Key Frame Set Table
+| field                 | offset | size                          | data type | description                                                                                                         |
+| --------------------- | ------ | ----------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------- |
+| key frame set count   |        | `0x4`                         | `u32`     | The number of key frame sets.<br><br>The address of this field is what is pointed to by the key frame table offset. |
+| key frame set offsets |        | `0x4 * [key frame set count]` | `u32[]`   | Offsets to the key frame sets.                                                                                      |
+#### Key Frame Set
+| field           | offset | size                      | data type    | description                            |
+| --------------- | ------ | ------------------------- | ------------ | -------------------------------------- |
+| node index      | `0x0`  | `0x2`                     | `u16`        | The node this key frame set acts upon. |
+| key frame count | `0x2`  | `0x2`                     | `u16`        | The number of key frames.              |
+| key frames      | `0x4`  | `0x8 * [key frame count]` | `KeyFrame[]` | The key frames for this key frame set. |
 #### Key Frame
 | field      | offset | size  | data type | description                               |
 | ---------- | ------ | ----- | --------- | ----------------------------------------- |
@@ -67,13 +84,6 @@ Size: `0x18`
 | is active? | `0x2`  | `0x1` | `bool`    | Indicates if an animation is in progress. |
 | x          | `0x4`  | `0x2` | `s16`     | X position.                               |
 | y          | `0x6`  | `0x2` | `s16`     | Y position.                               |
-#### Key Frame Set
-
-| field           | offset | size                    | data type    | description                            |
-| --------------- | ------ | ----------------------- | ------------ | -------------------------------------- |
-| node index      | `0x0`  | `0x2`                   | `u16`        | The node this key frame set acts upon. |
-| key frame count | `0x2`  | `0x2`                   | `u16`        | The number of key frames.              |
-| key frames      | `0x4`  | `8 * [key frame count]` | `KeyFrame[]` | The key frames for this key frame set. |
 ### Demo Information
 #### Demo Data Block
 | field                   | offset | size                          | data type | description                     |
