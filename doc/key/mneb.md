@@ -15,15 +15,16 @@ The NURBS animation format for *Kirby's Epic Yarn*.
 ## Format documentation
 ### Header
 Size: `0x18`
-| field              | offset | size  | data type | description                              |
-| ------------------ | ------ | ----- | --------- | ---------------------------------------- |
-| magic              | `0x0`  | `0x4` | `char[4]` | "MNCH" - Model NURBS Control Header?     |
-| curve block offset | `0x4`  | `0x4` | `u32`     | Offset to the curve blocks.              |
-| unknown            | `0x8`  | `0x4` | `u32`     |                                          |
-| curve block count  | `0xC`  | `0x4` | `u32`     | The number of curve blocks.              |
-| unknown            | `0x10` | `0x4` | `u32`     |                                          |
-| frame count        | `0x14` | `0x2` | `u16`     | The number of frames this animation has. |
-| unknown            | `0x16` | `0x1` | `bool`    |                                          |
+
+| field             | offset | size  | data type | description                              |
+| ----------------- | ------ | ----- | --------- | ---------------------------------------- |
+| magic             | `0x0`  | `0x4` | `char[4]` | "MNCH" - Model NURBS Control Header?     |
+| data offset       | `0x4`  | `0x4` | `u32`     | Offset to the curve or demo data blocks. |
+| unknown           | `0x8`  | `0x4` | `u32`     |                                          |
+| curve block count | `0xC`  | `0x4` | `u32`     | The number of curve blocks.              |
+| unknown           | `0x10` | `0x4` | `u32`     |                                          |
+| frame count       | `0x14` | `0x2` | `u16`     | The number of frames this animation has. |
+| unknown           | `0x16` | `0x1` | `bool`    |                                          |
 ### Curve Information
 #### Curve Block
 | field                       | offset | size   | data type  | description                        |
@@ -85,24 +86,24 @@ For some files, there seems to be some unknown data that comes after the float a
 | y          | `0x6`  | `0x2` | `s16`     | Y position.                               |
 ### Demo Information
 #### Demo Data Block
-| field                   | offset | size                          | data type | description                     |
-| ----------------------- | ------ | ----------------------------- | --------- | ------------------------------- |
-| magic                   | `0x0`  | `0x4`                         | `char[4]` | "MNDD" - Model NURBS Demo Data? |
-| block size              | `0x4`  | `0x4`                         | `u32`     | The size of this block.         |
-| demo option set count   | `0x8`  | `0x4`                         | `u32`     | The number of demo option sets. |
-| demo option set offsets | `0xC`  | `4 * [demo option set count]` | `u32[]`   | Offsets to demo option sets.    |
+| field                   | offset | size                            | data type | description                     |
+| ----------------------- | ------ | ------------------------------- | --------- | ------------------------------- |
+| magic                   | `0x0`  | `0x4`                           | `char[4]` | "MNDD" - Model NURBS Demo Data? |
+| block size              | `0x4`  | `0x4`                           | `u32`     | The size of this block.         |
+| demo option set count   | `0x8`  | `0x4`                           | `u32`     | The number of demo option sets. |
+| demo option set offsets | `0xC`  | `0x4 * [demo option set count]` | `u32[]`   | Offsets to demo option sets.    |
 #### Demo Option Set
-| field               | offset | size                 | data type   | description                  |
-| ------------------- | ------ | -------------------- | ----------- | ---------------------------- |
-| name                | `0x0`  | `0x20`               | `char[32]`  | The name of this option set. |
-| unknown             | `0x20` | `0x20`               | `char[32]`? |                              |
-| option count        | `0x40` | `0x4`                | `u32`       | The number of demo options.  |
-| demo option offsets | `0x44` | `4 * [option count]` | `u32[]`     | Offsets to demo options.     |
+| field               | offset | size                   | data type   | description                  |
+| ------------------- | ------ | ---------------------- | ----------- | ---------------------------- |
+| name                | `0x0`  | `0x20`                 | `char[32]`  | The name of this option set. |
+| unknown             | `0x20` | `0x20`                 | `char[32]`? |                              |
+| option count        | `0x40` | `0x4`                  | `u32`       | The number of demo options.  |
+| demo option offsets | `0x44` | `0x4 * [option count]` | `u32[]`     | Offsets to demo options.     |
 #### Demo Option
-| field       | offset | size                | data type  | description                           |
-| ----------- | ------ | ------------------- | ---------- | ------------------------------------- |
-| name        | `0x0`  | `0x10`              | `char[16]` | The name of this option.              |
-| value count | `0x10` | `0x4`               | `u32`      | The number of values for this option. |
-| values      | `0x14` | `1 * [value count]` | `u8[]`     | The values for this option.           |
+| field  | offset | size             | data type  | description                        |
+| ------ | ------ | ---------------- | ---------- | ---------------------------------- |
+| name   | `0x0`  | `0x10`           | `char[16]` | The name of this option.           |
+| length | `0x10` | `0x4`            | `u32`      | The length of this option's value. |
+| value  | `0x14` | `0x1 * [length]` | `char[]`   | This option's value.               |
 
 An alignment note: the address of the next `DemoOption` is padded to a multiple of 4 that *isn't* directly after the end of this struct. E.g. if this struct ends at `0x_2`, the next `DemoOption` will start at `0x_4`, but if this struct ends at `0x_4`, the next `DemoOption` will start at `0x_8` instead.
