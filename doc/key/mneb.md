@@ -12,7 +12,6 @@ The NURBS animation format for *Kirby's Epic Yarn*.
     - demo data block
 
 1 - Curve blocks and demo data blocks are typically never seen together.
-
 ## Format documentation
 ### Header
 Size: `0x18`
@@ -42,6 +41,7 @@ Size: `0x18`
 | knot table offset           | `0xA0` | `0x4`  | `u32`      | Offset to the knot table.          |
 | key frame info offset       | `0xA4` | `0x4`  | `u32`      | Offset to the key frame info.      |
 | unknown                     | `0xA8` | `0x10` | `float[4]` |                                    |
+For some files, there seems to be some unknown data that comes after the float array at offset `0xA8`.
 #### Control Point Table
 | field               | offset | size                          | data type        | description                   |
 | ------------------- | ------ | ----------------------------- | ---------------- | ----------------------------- |
@@ -69,8 +69,8 @@ Size: `0x18`
 #### Key Frame Set Table
 | field                 | offset | size                          | data type | description                                                                                                         |
 | --------------------- | ------ | ----------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------- |
-| key frame set count   |        | `0x4`                         | `u32`     | The number of key frame sets.<br><br>The address of this field is what is pointed to by the key frame table offset. |
-| key frame set offsets |        | `0x4 * [key frame set count]` | `u32[]`   | Offsets to the key frame sets.                                                                                      |
+| key frame set count   | `0x0`  | `0x4`                         | `u32`     | The number of key frame sets.<br><br>The address of this field is what is pointed to by the key frame table offset. |
+| key frame set offsets | `0x4`  | `0x4 * [key frame set count]` | `u32[]`   | Offsets to the key frame sets.                                                                                      |
 #### Key Frame Set
 | field           | offset | size                      | data type    | description                            |
 | --------------- | ------ | ------------------------- | ------------ | -------------------------------------- |
