@@ -41,6 +41,7 @@ Size: `0x18`
 | knot table offset           | `0xA0` | `0x4`  | `u32`      | Offset to the knot table.          |
 | key frame info offset       | `0xA4` | `0x4`  | `u32`      | Offset to the key frame info.      |
 | unknown                     | `0xA8` | `0x10` | `float[4]` |                                    |
+
 For some files, there seems to be some unknown data that comes after the float array at offset `0xA8`.
 #### Control Point Table
 | field               | offset | size                          | data type        | description                   |
