@@ -15,7 +15,6 @@ The NURBS animation format for *Kirby's Epic Yarn*.
 ## Format documentation
 ### Header
 Size: `0x18`
-
 | field              | offset | size  | data type | description                              |
 | ------------------ | ------ | ----- | --------- | ---------------------------------------- |
 | magic              | `0x0`  | `0x4` | `char[4]` | "MNCH" - Model NURBS Control Header?     |
@@ -42,14 +41,13 @@ Size: `0x18`
 | key frame info offset       | `0xA4` | `0x4`  | `u32`      | Offset to the key frame info.      |
 | unknown                     | `0xA8` | `0x10` | `float[4]` |                                    |
 
-For some files, there seems to be some unknown data that comes after the float array at offset `0xA8`.
+For some files, there seems to be some unknown data that comes after the float array at offset `0xA8` that spans until the control point table.
 #### Control Point Table
 | field               | offset | size                          | data type        | description                   |
 | ------------------- | ------ | ----------------------------- | ---------------- | ----------------------------- |
 | control point count | `0x0`  | `0x4`                         | `u32`            | The number of control points. |
 | control points      | `0x4`  | `0x8 * [control point count]` | `ControlPoint[]` | The control points.           |
 #### Control Point
-
 | field | offset | size  | data type | description |
 | ----- | ------ | ----- | --------- | ----------- |
 | x     | `0x0`  | `0x2` | `s16`     | X position. |
