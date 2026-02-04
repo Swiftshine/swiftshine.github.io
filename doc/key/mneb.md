@@ -16,15 +16,15 @@ The NURBS animation format for *Kirby's Epic Yarn*.
 ### Header
 Size: `0x18`
 
-| field             | offset | size  | data type | description                              |
-| ----------------- | ------ | ----- | --------- | ---------------------------------------- |
-| magic             | `0x0`  | `0x4` | `char[4]` | "MNCH" - Model NURBS Control Header?     |
-| data offset       | `0x4`  | `0x4` | `u32`     | Offset to the curve or demo data blocks. |
-| unknown           | `0x8`  | `0x4` | `u32`     |                                          |
-| curve block count | `0xC`  | `0x4` | `u32`     | The number of curve blocks.              |
-| unknown           | `0x10` | `0x4` | `u32`     |                                          |
-| frame count       | `0x14` | `0x2` | `u16`     | The number of frames this animation has. |
-| is looped?        | `0x16` | `0x1` | `bool`    | Indicates if the animation is looped.    |
+| field             | offset | size  | data type | description                                                                                                |
+| ----------------- | ------ | ----- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| magic             | `0x0`  | `0x4` | `char[4]` | "MNCH" - Model NURBS Control Header?                                                                       |
+| data offset       | `0x4`  | `0x4` | `u32`     | Offset to the curve or demo data blocks.                                                                   |
+| unknown           | `0x8`  | `0x4` | `u32`     |                                                                                                            |
+| curve block count | `0xC`  | `0x4` | `u32`     | The number of curve blocks.                                                                                |
+| lock              | `0x10` | `0x4` | `u32`     | This value has no real meaning on-disk. It is instead used to determine if a file has already been loaded. |
+| frame count       | `0x14` | `0x2` | `u16`     | The number of frames this animation has.                                                                   |
+| is looped?        | `0x16` | `0x1` | `bool`    | Indicates if the animation is looped.                                                                      |
 ### Curve Information
 #### Curve Block
 | field                       | offset | size   | data type  | description                        |
