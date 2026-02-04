@@ -24,7 +24,7 @@ Size: `0x18`
 | curve block count | `0xC`  | `0x4` | `u32`     | The number of curve blocks.              |
 | unknown           | `0x10` | `0x4` | `u32`     |                                          |
 | frame count       | `0x14` | `0x2` | `u16`     | The number of frames this animation has. |
-| unknown           | `0x16` | `0x1` | `bool`    |                                          |
+| is looped?        | `0x16` | `0x1` | `bool`    | Indicates if the animation is looped.    |
 ### Curve Information
 #### Curve Block
 | field                       | offset | size   | data type  | description                        |
