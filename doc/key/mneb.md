@@ -64,7 +64,9 @@ For some files, there seems to be some unknown data that comes after the float a
 | field                  | offset | size          | data type       | description                        |
 | ---------------------- | ------ | ------------- | --------------- | ---------------------------------- |
 | key frame table offset | `0x0`  | `0x4`         | `u32`           | The offset to the key frame table. |
-| unknown                | `0x4`  | `0xC`         |                 | Maybe used for alignment?          |
+| unknown offset         | `0x4`  | `0x4`         | `u32`           |                                    |
+| unknown offset         | `0x8`  | `0x4`         | `u32`           |                                    |
+| unknown offset         | `0xC`  | `0x4`         | `u32`           |                                    |
 | key frame set          | `0x10` | variable size | `KeyFrameSet[]` | The key frame sets.                |
 #### Key Frame Set Table
 | field                 | offset | size                          | data type | description                                                                                                         |
