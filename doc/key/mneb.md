@@ -49,12 +49,12 @@ For some files, there seems to be some unknown data that comes after the float a
 | control point count | `0x0`  | `0x4`                         | `u32`            | The number of control points. |
 | control points      | `0x4`  | `0x8 * [control point count]` | `ControlPoint[]` | The control points.           |
 #### Control Point
-| field | offset | size  | data type | description |
-| ----- | ------ | ----- | --------- | ----------- |
-| x     | `0x0`  | `0x2` | `s16`     | X position. |
-| y     | `0x2`  | `0x2` | `s16`     | Y position. |
-| z     | `0x4`  | `0x2` | `s16`     | Z position. |
-| w     | `0x6`  | `0x2` | `s16`     | Weight.     |
+| field      | offset | size  | data type | description                                                                                                                                                                            |
+| ---------- | ------ | ----- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| x          | `0x0`  | `0x2` | `s16`     | X position.                                                                                                                                                                            |
+| y          | `0x2`  | `0x2` | `s16`     | Y position.                                                                                                                                                                            |
+| z          | `0x4`  | `0x2` | `s16`     | Z position.                                                                                                                                                                            |
+| texture id | `0x6`  | `0x2` | `u16`     | The texture to be rendered from this point onto the next. As per the game's code, the texture that renders must be titled `wool_XX`, where `XX` is this value in numeric decimal form. |
 #### Knot Table
 | field       | offset | size                 | data type | description          |
 | ----------- | ------ | -------------------- | --------- | -------------------- |
