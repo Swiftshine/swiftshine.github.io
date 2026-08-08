@@ -103,7 +103,7 @@ Vec2f GetNormalizedVector(Vec2f start, Vec2f end) {
 	float magnitude = sqrt(pow(direction.x, 2.0f) + pow(direction.y, 2.0f));
 	Vec2f normalized = Vec2f(direction.x / magnitude, direction.y / magnitude);
 
-	Vec2f result = Vec2f(-normalized.y, normalized.x);
+	Vec2f result = Vec2f(normalized.y, normalized.x);
 	return result;
 }
 ```
