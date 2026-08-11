@@ -109,3 +109,6 @@ For some files, there seems to be some unknown data that comes after the float a
 | value  | `0x14` | `0x1 * [length]` | `char[]`   | This option's value.               |
 
 An alignment note: the address of the next `DemoOption` is padded to a multiple of 4 that *isn't* directly after the end of this struct. E.g. if this struct ends at `0x_2`, the next `DemoOption` will start at `0x_4`, but if this struct ends at `0x_4`, the next `DemoOption` will start at `0x_8` instead.
+
+## Tools
+- [MNEB Tool](https://github.com/Swiftshine/mneb-tool)
